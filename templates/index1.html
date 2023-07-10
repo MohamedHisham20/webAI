@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            }
+            .middle{
+
+                text-align: center;
+
+            }
+            .right{
+
+                text-align: right;
+
+                }
+            .left{
+
+                text-align: left;
+
+                }
+        </style>
+        <title>ai model app</title>
+        <meta name="ai model" description="decision making"/>
+        <link rel="icon" href="https://img.freepik.com/premium-vector/ai-technology-digital-artificial-intelligence-future-circuit-electronic-colorful-vector-logo-design_216988-1080.jpg">
+    </head>
+    <body>
+        <div class="login">
+            <form action="{{ url_for('predict')}}"method="post">
+                age<input type="text" name="age"/>
+                
+                    Gender<select align="center" name="gender">
+                        <option value="1">male</option>
+                        <option value="0">female</option>
+                    </select>
+                
+                chest pain type<select align="center" name="chest_pain_type">
+                    <option value="1">typical angina</option>
+                    <option value="2">atypical angina</option>
+                    <option value="3">non-anginal pain</option>
+                    <option value="4">asymptomatic</option>
+                </select>
+                blood pressure<input type="text" name="bp"/>
+                cholesterol<input type="text" name="cholesterol"/>
+                <br/><br/><br/>
+
+
+                fasting blood sugar > 120<select name="fbs_gt_120">
+                    <option value="0">false</option>
+                    <option value="1">true</option>
+                </select>
+                ekg results<select align="center" name="ekg_result">
+                    <option value="0">normal</option>
+                    <option value="1">Have ST-T wave abnormality</option>
+                    <option value="2">showing probable(definite) left ventricular hypertrophy</option>
+                </select>
+
+                
+                    maximum heart rate<input type="text" name="max_hr"/>
+                
+                <br/><br/><br/>
+                
+                
+                
+                excercise angina(pain when do hard excercise)<select name="angina">
+                    <option value="0">false</option>
+                    <option value="1">true</option>
+                </select>
+                ST Depression<input type="text" name="st_depression"/>
+                ST slope<select align="center" name="st_slope">
+                    <option value="1">up slope</option>
+                    <option value="2">flat</option>
+                    <option value="3">down slope</option>
+                </select>
+                <br/><br/><br/>
+
+                number of vessels in fluoroscopy<select align="center" name="number_of_vessels_fluro">
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+                
+                
+                
+                Thallium<select align="center" name="thallium">
+                    <option value="3">normal</option>
+                    <option value="6">fixed defect</option>
+                    <option value="7">reversable defect</option>
+                </select>
+                <br/><br/><br/>
+                
+
+                
+                <div class="center">
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+                </div>
+            </form>
+            <br/><br/>
+            {{ prediction_text }}
+        </div>
+    </body>
+</html>
